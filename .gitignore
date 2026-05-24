@@ -1,0 +1,22 @@
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node/npm (if you add npm packages later)
+node_modules/
+package-lock.json
+
+# IDE
+*.iml
+
+# Build files
+dist/
+build/
