@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, Roja - A Letter of Love & Apology</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="title">💔 I'm Sorry, Roja 💔</h1>
+            <p class="subtitle">A moment of sincere apology & hope for forgiveness...</p>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <!-- Character Section -->
+        <div class="character-section">
+            <div class="character-container">
+                <div class="character" id="character">
+                    <div class="face">
+                        <div class="eyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                        <div class="tears-container"></div>
+                        <div class="mouth"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="character-status" id="characterStatus">😔 Waiting for forgiveness...</div>
+        </div>
+
+        <!-- Speech Container -->
+        <div class="speech-container">
+            <div class="part-label" id="partLabel">Starting...</div>
+            <div class="speech-text" id="speechText">Click "Slap Me" to hear my apology...</div>
+            <div class="speech-progress">
+                <span id="speechProgress">0</span> / <span id="speechTotal">9</span> parts
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="slap-btn" id="slapBtn">
+                <span class="btn-icon">🤚</span>
+                <span class="btn-text">Slap Me</span>
+            </button>
+            <button class="forgive-btn" id="forgiveBtn" disabled>
+                <span class="btn-icon">💚</span>
+                <span class="btn-text">Forgive Me</span>
+            </button>
+        </div>
+
+        <!-- Slap Counter -->
+        <div class="slap-counter" id="slapCounter">
+            <span class="counter-label">Times Slapped:</span>
+            <span class="counter-value">0</span>
+        </div>
+
+        <!-- Status Messages -->
+        <div class="status-messages">
+            <div class="message" id="messageBox"></div>
+        </div>
+
+        <!-- Ending Message -->
+        <div class="ending-message" id="endingMessage"></div>
+
+        <!-- Reset Button -->
+        <button class="reset-btn" id="resetBtn">
+            <span class="btn-icon">🔄</span>
+            <span class="btn-text">Start Over</span>
+        </button>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with 💔 and hope | Waiting for you...</p>
+            <a href="https://github.com/2nbffg-spec/sorry-roja" target="_blank" class="github-link">View on GitHub</a>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
