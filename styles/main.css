@@ -1,0 +1,453 @@
+/* =============================================
+   MAIN STYLESHEET - I'm Sorry, Roja
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary-dark: #1a1a2e;
+    --secondary-dark: #16213e;
+    --accent-red: #ff6b6b;
+    --accent-light-red: #ff4444;
+    --accent-teal: #4ecdc4;
+    --accent-dark-teal: #44a39a;
+    --text-light: #e0e0e0;
+    --text-muted: #aaa;
+    --border-color: rgba(255, 107, 107, 0.3);
+    
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', 'Segoe UI', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: var(--text-light);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    animation: fadeInDown 1s ease-out;
+}
+
+.title {
+    font-size: 3em;
+    color: var(--accent-red);
+    text-shadow: 0 4px 20px rgba(255, 107, 107, 0.5);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1em;
+    margin-top: var(--space-sm);
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+    margin: var(--space-md) auto;
+    border-radius: 2px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: var(--space-lg) 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-teal));
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    border-radius: 3px;
+}
+
+/* Character Section */
+.character-section {
+    margin: var(--space-xl) 0;
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.character-container {
+    perspective: 1000px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.character {
+    width: 160px;
+    height: 220px;
+    background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 107, 107, 0.2);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.character.hurt {
+    animation: characterHurt 0.4s ease-out;
+    filter: brightness(0.8);
+}
+
+.character.crying {
+    filter: brightness(0.6) hue-rotate(5deg);
+    animation: characterCry 0.6s ease-out;
+}
+
+.character.healed {
+    animation: characterHealed 0.8s ease-out;
+    filter: brightness(1.1);
+    box-shadow: 0 15px 40px rgba(78, 205, 196, 0.4);
+}
+
+/* Face */
+.face {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.eyes {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--transition);
+}
+
+.character.crying .eye::after {
+    background: #000;
+}
+
+.tears-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.mouth {
+    width: 40px;
+    height: 20px;
+    border: 2px solid white;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+    position: relative;
+}
+
+.character.healed .mouth {
+    border-radius: 40px 40px 0 0;
+    border-bottom: none;
+    border-top: 2px solid white;
+}
+
+.character-status {
+    font-size: 1.2em;
+    color: var(--accent-red);
+    font-weight: 600;
+    margin-top: var(--space-md);
+    animation: pulse 2s infinite;
+}
+
+/* Speech Container */
+.speech-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+    min-height: 200px;
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.8s ease-out;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.part-label {
+    color: var(--accent-red);
+    font-size: 0.95em;
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+}
+
+.speech-text {
+    font-size: 1.3em;
+    line-height: 2;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: var(--space-md);
+    font-weight: 500;
+    min-height: 100px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.speech-progress {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+button {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 1.1em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.btn-icon {
+    font-size: 1.3em;
+}
+
+.btn-text {
+    display: inline;
+}
+
+.slap-btn {
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-light-red));
+    color: white;
+    animation: bounce 0.6s ease-out infinite;
+}
+
+.slap-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+.slap-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.slap-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.forgive-btn {
+    background: linear-gradient(135deg, var(--accent-teal), var(--accent-dark-teal));
+    color: white;
+    opacity: 0.5;
+    cursor: not-allowed;
+    transition: var(--transition);
+}
+
+.forgive-btn.active {
+    opacity: 1;
+    cursor: pointer;
+    animation: pulse 0.6s ease-out infinite;
+}
+
+.forgive-btn:hover.active {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.6);
+}
+
+.forgive-btn:active.active {
+    transform: scale(0.95);
+}
+
+/* Slap Counter */
+.slap-counter {
+    text-align: center;
+    margin-top: var(--space-lg);
+    font-size: 1.2em;
+    color: var(--text-light);
+    animation: fadeIn 1s ease-out;
+}
+
+.counter-label {
+    color: var(--text-muted);
+    margin-right: var(--space-xs);
+}
+
+.counter-value {
+    color: var(--accent-red);
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+/* Status Messages */
+.status-messages {
+    text-align: center;
+    margin-top: var(--space-md);
+    min-height: 30px;
+}
+
+.message {
+    color: var(--accent-teal);
+    font-size: 1em;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Ending Message */
+.ending-message {
+    font-size: 1.4em;
+    color: var(--accent-teal);
+    margin-top: var(--space-lg);
+    text-align: center;
+    opacity: 0;
+    line-height: 1.8;
+}
+
+.ending-message.show {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Reset Button */
+.reset-btn {
+    background: linear-gradient(135deg, #555, #333);
+    color: white;
+    margin-top: var(--space-lg);
+    display: none;
+}
+
+.reset-btn.show {
+    display: flex;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.reset-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(150, 150, 150, 0.4);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 107, 107, 0.2);
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.github-link {
+    color: var(--accent-teal);
+    text-decoration: none;
+    margin-left: var(--space-sm);
+    transition: var(--transition);
+}
+
+.github-link:hover {
+    color: var(--accent-red);
+    text-decoration: underline;
+}
