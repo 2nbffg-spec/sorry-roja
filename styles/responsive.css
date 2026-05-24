@@ -1,0 +1,248 @@
+/* =============================================
+   RESPONSIVE DESIGN - I'm Sorry, Roja
+   ============================================= */
+
+/* Tablets (768px and down) */
+@media (max-width: 768px) {
+    :root {
+        --space-xs: 6px;
+        --space-sm: 12px;
+        --space-md: 18px;
+        --space-lg: 28px;
+        --space-xl: 40px;
+    }
+
+    .container {
+        padding: var(--space-lg);
+        width: 95%;
+    }
+
+    .title {
+        font-size: 2.2em;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+    }
+
+    .character {
+        width: 140px;
+        height: 190px;
+    }
+
+    .character-container {
+        height: 250px;
+    }
+
+    .speech-text {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .speech-container {
+        padding: var(--space-md);
+    }
+
+    button {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.95em;
+    }
+
+    .btn-text {
+        display: inline;
+    }
+
+    .controls {
+        gap: var(--space-sm);
+    }
+}
+
+/* Mobile (480px and down) */
+@media (max-width: 480px) {
+    :root {
+        --space-xs: 4px;
+        --space-sm: 8px;
+        --space-md: 12px;
+        --space-lg: 16px;
+        --space-xl: 24px;
+    }
+
+    .container {
+        padding: var(--space-md);
+        width: 100%;
+    }
+
+    .title {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+        margin-top: 8px;
+    }
+
+    .character {
+        width: 120px;
+        height: 160px;
+    }
+
+    .character-container {
+        height: 200px;
+        margin-bottom: var(--space-md);
+    }
+
+    .character-status {
+        font-size: 1em;
+    }
+
+    .speech-container {
+        padding: var(--space-md);
+        min-height: 140px;
+        margin: var(--space-md) 0;
+    }
+
+    .part-label {
+        font-size: 0.8em;
+        letter-spacing: 0.8px;
+    }
+
+    .speech-text {
+        font-size: 0.95em;
+        line-height: 1.5;
+        min-height: 80px;
+    }
+
+    .speech-progress {
+        font-size: 0.8em;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
+    }
+
+    button {
+        width: 100%;
+        padding: var(--space-md) var(--space-sm);
+        font-size: 0.9em;
+    }
+
+    .btn-icon {
+        font-size: 1.1em;
+    }
+
+    .slap-btn:hover:not(:disabled) {
+        transform: scale(1.05);
+    }
+
+    .forgive-btn:hover.active {
+        transform: scale(1.05);
+    }
+
+    .slap-counter {
+        font-size: 1em;
+    }
+
+    .counter-value {
+        font-size: 1.2em;
+    }
+
+    .ending-message {
+        font-size: 1.15em;
+    }
+
+    .footer {
+        font-size: 0.8em;
+        margin-top: var(--space-lg);
+        padding-top: var(--space-md);
+    }
+
+    .eyes {
+        gap: 20px;
+    }
+
+    .eye {
+        width: 16px;
+        height: 16px;
+    }
+
+    .mouth {
+        width: 30px;
+        height: 16px;
+        border-width: 1.5px;
+    }
+
+    .divider {
+        width: 60px;
+        height: 2px;
+        margin: var(--space-sm) auto;
+    }
+}
+
+/* Extra Small (320px and down) */
+@media (max-width: 320px) {
+    .title {
+        font-size: 1.5em;
+    }
+
+    .character {
+        width: 100px;
+        height: 140px;
+    }
+
+    .character-container {
+        height: 180px;
+    }
+
+    .speech-text {
+        font-size: 0.85em;
+    }
+
+    button {
+        padding: var(--space-md) var(--space-sm);
+        font-size: 0.8em;
+    }
+}
+
+/* Portrait Orientation */
+@media (orientation: portrait) {
+    .container {
+        padding: var(--space-md);
+    }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+    .character-container {
+        height: 200px;
+        margin-bottom: var(--space-sm);
+    }
+
+    .character {
+        width: 120px;
+        height: 150px;
+    }
+
+    .speech-text {
+        font-size: 1em;
+        min-height: 60px;
+    }
+
+    button {
+        padding: var(--space-sm);
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    .character {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    button {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+}
