@@ -52,6 +52,13 @@ const UI = {
         this.slapCounter++;
         Character.slapCount = this.slapCounter;
 
+        // 🔊 PLAY SLAP SOUND
+        if (window.audioElements && window.audioElements.slapSound) {
+            const slapSound = window.audioElements.slapSound;
+            slapSound.currentTime = 0;
+            slapSound.play().catch(err => console.log('Slap sound error:', err));
+        }
+
         // Update UI
         this.updateCounter();
         this.showNextSpeech();
@@ -76,6 +83,14 @@ const UI = {
         this.elements.slapBtn.disabled = true;
         this.elements.forgiveBtn.disabled = true;
 
+        // 🔊 STOP BACKGROUND MUSIC AND PLAY FORGIVE MUSIC
+        if (window.audioElements) {
+            const { bgMusic, forgiveMusic } = window.audioElements;
+            bgMusic.pause();
+            forgiveMusic.currentTime = 0;
+            forgiveMusic.play().catch(err => console.log('Forgive music error:', err));
+        }
+
         // Effects
         Effects.createHeartShower();
         Effects.createConfetti();
@@ -98,6 +113,15 @@ const UI = {
         this.elements.endingMessage.classList.remove('show');
         this.elements.endingMessage.textContent = '';
         this.elements.messageBox.textContent = '';
+
+        // 🔊 RESET AUDIO
+        if (window.audioElements) {
+            const { bgMusic, forgiveMusic } = window.audioElements;
+            forgiveMusic.pause();
+            bgMusic.currentTime = 0;
+            bgMusic.play().catch(err => console.log('Audio error:', err));
+        }
+
         this.updateDisplay();
     },
 
