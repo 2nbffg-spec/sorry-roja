@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
     Character.init();
     UI.init();
 
+    // Audio Setup
+    const bgMusic = document.getElementById('bgMusic');
+    const slapSound = document.getElementById('slapSound');
+    const forgiveMusic = document.getElementById('forgiveMusic');
+
+    // Store audio elements globally for UI module
+    window.audioElements = { bgMusic, slapSound, forgiveMusic };
+
+    // Start background music
+    bgMusic.play().catch(err => {
+        console.log('Audio autoplay prevented (user interaction required)');
+        // Play on first user interaction
+        document.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+            }
+        }, { once: true });
+    });
+
     console.log('✅ Application ready!');
     console.log('💡 Tips:');
     console.log('   - Press S to slap');
